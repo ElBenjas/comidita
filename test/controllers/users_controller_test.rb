@@ -11,8 +11,18 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'GET #show' do
-    get users_url{user.id}
+    get users_url(id: @user.id)
 
     assert_response :success
+  end
+
+  test 'DELETE #destroy' do
+    assert_difference 'User.count', -1 do
+      delete user_url(id: @user.id)
+
+      assert_response :success
+    end
+
+    assert_empty User.where(id: @user.id)
   end
 end
