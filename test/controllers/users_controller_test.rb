@@ -30,7 +30,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'GET #show' do
-    get users_url(id: @user.id)
+    get user_url(id: @user.id)
 
     assert_response :success
   end
