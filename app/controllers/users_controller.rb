@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
-  # protect_from_forgery with: :null_session
+  protect_from_forgery with: :null_session
 
   def index
     users = User.all
+    users = users.shuffle
+
     render json: users
   end
 
