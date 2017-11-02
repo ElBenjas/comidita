@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  # protect_from_forgery with: :null_session
+  protect_from_forgery with: :null_session
+  before_action :find_user, only:[:show, :update, :destroy]
 
   def index
     users = User.all
@@ -14,26 +15,27 @@ class UsersController < ApplicationController
   end
 
   def show
-    user = User.find(params[:id])
-    render json: user
+    render json: @user
   end
 
   def update
-    user = User.find(params[:id])
-    user.update!(user_params)
+    @user.update!(user_params)
 
-    render json: user
+    render json: @user
   end
 
   def destroy
-    user = User.find(params[:id])
-    user.destroy
-    render json: user
+    @user.destroy
+
+    render json: @user
   end
 end
 
 private
+  def find_user
+    @user = User.find(params[:id])
+  end
 
-def user_params
-  params.require(:user).permit(:name, :email, :password)
-end
+  def user_params
+    params.require(:user).permit(:name, :email, :password)
+  end
