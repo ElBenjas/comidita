@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
   protect_from_forgery with: :null_session
-<<<<<<< HEAD
-=======
   before_action :find_user, only:[:show, :update, :destroy]
->>>>>>> pictures
 
   def index
     users = User.all
