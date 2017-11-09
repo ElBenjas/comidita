@@ -2,5 +2,5 @@ Rails.application.routes.draw do
   resources :users
   resources :pictures
 
-  root 'users#index'
+  root 'pictures#index'
 end
