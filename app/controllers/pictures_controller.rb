@@ -38,6 +38,6 @@ private
   end
 
   def picture_params
-    params.require(:picture).permit(:pic1, :pic2, :pic3)
+    params.require(:picture).permit()
   end
 end
