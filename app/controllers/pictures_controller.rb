@@ -4,7 +4,7 @@ class PicturesController < ApplicationController
 
   def index
     pictures = Picture.all
-    render json: pictures
+    paginate json: pictures, per_page: 10
   end
 
   def create

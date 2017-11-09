@@ -5,8 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'active_model_serializers'
+gem 'api-pagination'
+gem 'faker'
 gem 'pry-rails'
 gem 'pry'
+gem 'will_paginate'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
