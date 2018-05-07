@@ -1,6 +1,3 @@
-User.destroy_all
-Picture.destroy_all
-
 20.times do
   User.create(name: Faker::Name.name, email: Faker::Internet.email)
 end
